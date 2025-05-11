@@ -1,0 +1,922 @@
+[
+  {
+    "type": "heading",
+    "text": "Base de donn�es publiquedes m�dicaments"
+  },
+  {
+    "type": "heading",
+    "text": "Sommaire"
+  },
+  {
+    "type": "heading",
+    "text": "AFTAGEL, gel buccal  - Notice patient"
+  },
+  {
+    "type": "paragraph",
+    "text": "ANSM - Mis � jour le : 30/10/2020"
+  },
+  {
+    "type": "paragraph",
+    "text": "D�nomination du m�dicament"
+  },
+  {
+    "type": "paragraph",
+    "text": "AFTAGEL, gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": "Chlorhydrate de lidoca�ne, Sulfate de zinc"
+  },
+  {
+    "type": "paragraph",
+    "text": "Encadr�"
+  },
+  {
+    "type": "paragraph",
+    "text": "Veuillez lire attentivement cette notice avant d�utiliser ce m�dicament car elle contient des informations importantes pour vous."
+  },
+  {
+    "type": "paragraph",
+    "text": "Vous devez toujours utiliser ce m�dicament en suivant scrupuleusement les informations fournies dans cette notice ou par votre m�decin ou votre pharmacien."
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Gardez cette notice. Vous pourriez avoir besoin de la relire."
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Adressez-vous � votre pharmacien pour tout conseil ou information."
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Si vous ressentez un quelconque effet ind�sirable, parlez-en � votre m�decin ou votre pharmacien. Ceci s�applique aussi � tout effet ind�sirable qui ne serait pas mentionn� dans cette notice. Voir rubrique 4."
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Vous devez vous adresser � votre m�decin si vous ne ressentez aucune am�lioration ou si vous vous sentez moins bien apr�s 5 jours"
+  },
+  {
+    "type": "paragraph",
+    "text": "Que contient cette notice ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "1. Qu'est-ce que AFTAGEL, gel buccal et dans quels cas est-il utilis� ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "2. Quelles sont les informations � conna�tre avant d�utiliser AFTAGEL, gel buccal ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "3. Comment utiliser AFTAGEL, gel buccal ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "4. Quels sont les effets ind�sirables �ventuels ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "5. Comment conserver AFTAGEL, gel buccal ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "6. Contenu de l�emballage et autres informations."
+  },
+  {
+    "type": "heading",
+    "text": "1. QU�EST-CE QUE AFTAGEL, gel buccal ET DANS QUELS CAS EST-IL UTILISE ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "Classe pharmacoth�rapeutique : ANESTHESIQUE LOCAL, Code ATC : N01BB52"
+  },
+  {
+    "type": "paragraph",
+    "text": "Traitement symptomatique de courte dur�e des l�sions douloureuses de la muqueuse buccale ou gingivale (par exemple aphtes)"
+  },
+  {
+    "type": "heading",
+    "text": "2. QUELLES SONT LES INFORMATIONS A CONNAITRE AVANT D�UTILISER AFTAGEL, gel buccal ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "N�utilisez jamais AFTAGEL, gel buccal :"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         En cas d�ant�c�dents d�allergie aux anesth�siques locaux (lidoca�ne)."
+  },
+  {
+    "type": "paragraph",
+    "text": "EN CAS DE DOUTE, IL EST INDISPENSABLE DE DEMANDER L�AVIS DE VOTRE MEDECIN OU DE VOTRE PHARMACIEN"
+  },
+  {
+    "type": "paragraph",
+    "text": "Avertissements et pr�cautions"
+  },
+  {
+    "type": "paragraph",
+    "text": "Adressez-vous � votre m�decin ou pharmacien avant d�utiliser AFTAGEL, gel buccal."
+  },
+  {
+    "type": "paragraph",
+    "text": "En raison de l�insensibilisation due � l�anesth�sie locale, tenir compte du risque de morsure possible (l�vres, joue, langue). Une surveillance rapproch�e, apr�s application, chez les patients d�pendants peut notamment s�av�rer n�cessaire afin de v�rifier l�absence de morsure."
+  },
+  {
+    "type": "paragraph",
+    "text": "Ne pas manger ou boire imm�diatement apr�s application."
+  },
+  {
+    "type": "paragraph",
+    "text": "Ne pas utiliser de fa�on prolong�e."
+  },
+  {
+    "type": "paragraph",
+    "text": "L'attention des sportifs est attir�e sur le fait que cette sp�cialit� contient un principe actif pouvant induire une r�action positive des tests pratiqu�s lors de contr�les antidopage."
+  },
+  {
+    "type": "paragraph",
+    "text": "EN CAS DE DOUTE NE PAS HESITER A DEMANDER L�AVIS DE VOTRE MEDECIN OU DE VOTRE PHARMACIEN"
+  },
+  {
+    "type": "paragraph",
+    "text": "Enfants"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "Autres m�dicaments et AFTAGEL, gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": "Informez votre m�decin ou pharmacien si vous prenez, avez r�cemment pris ou pourriez prendre tout autre m�dicament."
+  },
+  {
+    "type": "paragraph",
+    "text": "AFTAGEL, gel buccal avec des aliments, boissons et de l�alcool"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "Grossesse et allaitement"
+  },
+  {
+    "type": "paragraph",
+    "text": "Ce m�dicament doit �tre utilis� avec prudence pendant la grossesse et l�allaitement."
+  },
+  {
+    "type": "paragraph",
+    "text": "Si vous �tes enceinte ou que vous allaitez, si vous pensez �tre enceinte ou planifiez une grossesse, demandez conseil � votre m�decin ou pharmacien avant de prendre ce m�dicament."
+  },
+  {
+    "type": "paragraph",
+    "text": "Conduite de v�hicules et utilisation de machines"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "AFTAGEL, gel buccal contient du propyl�neglycol."
+  },
+  {
+    "type": "heading",
+    "text": "3. COMMENT UTILISER AFTAGEL, gel buccal ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "Veillez � toujours utiliser ce m�dicament en suivant exactement les instructions de cette notice ou les indications de votre m�decin ou pharmacien. V�rifiez aupr�s de votre m�decin ou pharmacien en cas de doute"
+  },
+  {
+    "type": "paragraph",
+    "text": "Posologie"
+  },
+  {
+    "type": "paragraph",
+    "text": "Ce m�dicament est r�serv� aux adultes"
+  },
+  {
+    "type": "paragraph",
+    "text": "Apr�s s'�tre soigneusement lav� les mains, appliquer l��quivalent d�un petit pois de gel sur le doigt et masser doucement le point buccal douloureux."
+  },
+  {
+    "type": "paragraph",
+    "text": "Se laver les mains apr�s application."
+  },
+  {
+    "type": "paragraph",
+    "text": "Adulte : l�application pourra �tre renouvel�e 4 � 6 fois par jour."
+  },
+  {
+    "type": "paragraph",
+    "text": "La dur�e de traitement ne doit pas d�passer 5 jours."
+  },
+  {
+    "type": "paragraph",
+    "text": "Mode et voie d�administration"
+  },
+  {
+    "type": "paragraph",
+    "text": "VOIE LOCALE."
+  },
+  {
+    "type": "paragraph",
+    "text": "Si vous avez utilis� plus de AFTAGEL, gel buccal que vous n�auriez d�"
+  },
+  {
+    "type": "paragraph",
+    "text": "Un surdosage n'est pas attendu dans les conditions normales d'utilisation."
+  },
+  {
+    "type": "paragraph",
+    "text": "A de tr�s fortes doses, l�ingestion de la lidoca�ne et de l�huile essentielle contenues dans ce m�dicament peut provoquer des accidents neurologiques � type de convulsions et en particulier, en cas d'ant�c�dents d'�pilepsie."
+  },
+  {
+    "type": "paragraph",
+    "text": "En cas de surdosage ou de passage dans la circulation g�n�rale, les r�actions suivantes peuvent appara�tre :"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Syst�me nerveux central : nervosit�, agitation, tremblements, mouvements involontaires des yeux, c�phal�es, naus�es,"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Syst�me respiratoire : troubles du rythme respiratoire pouvant conduire � un arr�t respiratoire,"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Syst�me cardio-vasculaire : baisse du d�bit cardiaque et chute de la tension art�rielle."
+  },
+  {
+    "type": "paragraph",
+    "text": "En cas de surdosage : vous devez arr�ter le traitement et consulter votre m�decin ou votre pharmacien."
+  },
+  {
+    "type": "paragraph",
+    "text": "Si vous oubliez d�utiliser AFTAGEL, gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "Si vous arr�tez d�utiliser AFTAGEL, gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "Si vous avez d�autres questions sur l�utilisation de ce m�dicament, demandez plus d�informations � votre m�decin ou � votre pharmacien."
+  },
+  {
+    "type": "heading",
+    "text": "4. QUELS SONT LES EFFETS INDESIRABLES EVENTUELS ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "Comme tous les m�dicaments, ce m�dicament peut provoquer des effets ind�sirables, mais ils ne surviennent pas syst�matiquement chez tout le monde :"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Affections gastro intestinales : r�actions locales (irritation ou sensibilisation), risque de morsure (l�vres, joue, langue) par insensibilisation"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Affections du syst�me immunitaire : R�action d�hypersensibilit� (urticaire pouvant aller jusqu�� �d�me de Quincke)"
+  },
+  {
+    "type": "paragraph",
+    "text": "NE PAS HESITER A DEMANDER L�AVIS DE VOTRE MEDECIN OU DE VOTRE PHARMACIEN."
+  },
+  {
+    "type": "paragraph",
+    "text": "D�claration des effets secondaires"
+  },
+  {
+    "type": "paragraph",
+    "text": "Si vous ressentez un quelconque effet ind�sirable, parlez-en � votre m�decin ou � votre pharmacien. Ceci s�applique aussi � tout effet ind�sirable qui ne serait pas mentionn� dans cette notice. Vous pouvez �galement d�clarer les effets ind�sirables directement via le syst�me national de d�claration : Agence nationale de s�curit� du m�dicament et des produits de sant� (ANSM) et r�seau des Centres R�gionaux de Pharmacovigilance - Site internet : www.signalement-sante.gouv.fr"
+  },
+  {
+    "type": "paragraph",
+    "text": "En signalant les effets ind�sirables, vous contribuez � fournir davantage d�informations sur la s�curit� du m�dicament."
+  },
+  {
+    "type": "heading",
+    "text": "5. COMMENT CONSERVER AFTAGEL, gel buccal ?"
+  },
+  {
+    "type": "paragraph",
+    "text": "Tenir ce m�dicament hors de la vue et de la port�e des enfants."
+  },
+  {
+    "type": "paragraph",
+    "text": "N�utilisez pas ce m�dicament apr�s la date de p�remption indiqu�e sur le conditionnement ext�rieur."
+  },
+  {
+    "type": "paragraph",
+    "text": "A conserver � une temp�rature ne d�passant pas + 25�C."
+  },
+  {
+    "type": "paragraph",
+    "text": "Ne jetez aucun m�dicament au tout-�-l��gout ou avec les ordures m�nag�res. Demandez � votre pharmacien d��liminer les m�dicaments que vous n�utilisez plus. Ces mesures contribueront � prot�ger l�environnement."
+  },
+  {
+    "type": "heading",
+    "text": "6. CONTENU DE L�EMBALLAGE ET AUTRES INFORMATIONS"
+  },
+  {
+    "type": "paragraph",
+    "text": "Ce que contient AFTAGEL, gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Les substances actives sont :"
+  },
+  {
+    "type": "paragraph",
+    "text": "Chlorhydrate de lidoca�ne ........................................................................................... 0,60000 g"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sulfate de zinc ........................................................................................................... 0,50000 g"
+  },
+  {
+    "type": "paragraph",
+    "text": "Pour 100 ml de gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Les autres composants sont :"
+  },
+  {
+    "type": "paragraph",
+    "text": "Excipients : glyc�rol, hydroxy�thylcellulose, ar�me fraise LC 15096, saccharine sodique, huile essentielle de girofle, rouge cochenille A (E 124), eau purifi�e"
+  },
+  {
+    "type": "paragraph",
+    "text": "Qu�est-ce que AFTAGEL, gel buccal et contenu de l�emballage ext�rieur"
+  },
+  {
+    "type": "paragraph",
+    "text": "Ce m�dicament se pr�sente sous forme de gel buccal. Tube de 15 ml"
+  },
+  {
+    "type": "paragraph",
+    "text": "Titulaire de l�autorisation de mise sur le march�"
+  },
+  {
+    "type": "paragraph",
+    "text": "COOPERATION PHARMACEUTIQUE FRANCAISE"
+  },
+  {
+    "type": "paragraph",
+    "text": "PLACE LUCIEN AUVERT"
+  },
+  {
+    "type": "paragraph",
+    "text": "77020 MELUN CEDEX"
+  },
+  {
+    "type": "paragraph",
+    "text": "Exploitant de l�autorisation de mise sur le march�"
+  },
+  {
+    "type": "paragraph",
+    "text": "COOPERATION PHARMACEUTIQUE FRANCAISE"
+  },
+  {
+    "type": "paragraph",
+    "text": "PLACE LUCIEN AUVERT"
+  },
+  {
+    "type": "paragraph",
+    "text": "77020 MELUN CEDEX"
+  },
+  {
+    "type": "paragraph",
+    "text": "Fabricant"
+  },
+  {
+    "type": "paragraph",
+    "text": "COOPERATION PHARMACEUTIQUE FRANCAISE"
+  },
+  {
+    "type": "paragraph",
+    "text": "2 RUE DE LA SAUSSAIE"
+  },
+  {
+    "type": "paragraph",
+    "text": "77310 SAINT-FARGEAU PONTHIERRY"
+  },
+  {
+    "type": "paragraph",
+    "text": "Noms du m�dicament dans les Etats membres de l'Espace Economique Europ�en"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "La derni�re date � laquelle cette notice a �t� r�vis�e est :"
+  },
+  {
+    "type": "paragraph",
+    "text": "[� compl�ter ult�rieurement par le titulaire]"
+  },
+  {
+    "type": "paragraph",
+    "text": "Autres"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "Des informations d�taill�es sur ce m�dicament sont disponibles sur le site Internet de l�ANSM (France)."
+  },
+  {
+    "type": "paragraph",
+    "text": "Retour en haut de la page"
+  },
+  {
+    "type": "heading",
+    "text": "Base de donn�es publiquedes m�dicaments"
+  },
+  {
+    "type": "heading",
+    "text": "Sommaire"
+  },
+  {
+    "type": "heading",
+    "text": "AFTAGEL, gel buccal  - R�sum� des caract�ristiques du produit"
+  },
+  {
+    "type": "paragraph",
+    "text": "ANSM - Mis � jour le : 30/10/2020"
+  },
+  {
+    "type": "paragraph",
+    "text": "1. DENOMINATION DU MEDICAMENT"
+  },
+  {
+    "type": "paragraph",
+    "text": "AFTAGEL, gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": "2. COMPOSITION QUALITATIVE ET QUANTITATIVE"
+  },
+  {
+    "type": "paragraph",
+    "text": "Chlorhydrate de lidoca�ne.................................................................................................. 0,60000 g"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sulfate de zinc.................................................................................................................. 0,50000 g"
+  },
+  {
+    "type": "paragraph",
+    "text": "Pour 100 ml de gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": "Pour la liste compl�te des excipients, voir rubrique 6.1."
+  },
+  {
+    "type": "paragraph",
+    "text": "3. FORME PHARMACEUTIQUE"
+  },
+  {
+    "type": "paragraph",
+    "text": "Gel buccal."
+  },
+  {
+    "type": "paragraph",
+    "text": "4. DONNEES CLINIQUES"
+  },
+  {
+    "type": "paragraph",
+    "text": "4.1. Indications th�rapeutiques"
+  },
+  {
+    "type": "paragraph",
+    "text": "Traitement symptomatique de courte dur�e des l�sions douloureuses de la muqueuse buccale ou gingivale (par exemple aphtes)"
+  },
+  {
+    "type": "paragraph",
+    "text": "4.2. Posologie et mode d'administration"
+  },
+  {
+    "type": "paragraph",
+    "text": "R�serv� � l�adulte"
+  },
+  {
+    "type": "paragraph",
+    "text": "Apr�s s'�tre soigneusement lav� les mains, appliquer l��quivalent d�un petit pois de gel sur le doigt et masser doucement le point buccal douloureux. Se laver les mains apr�s applications."
+  },
+  {
+    "type": "paragraph",
+    "text": "Adulte : l�application pourra �tre renouvel�e 4 � 6 fois par jour."
+  },
+  {
+    "type": "paragraph",
+    "text": "La dur�e de traitement ne doit pas d�passer 5 jours."
+  },
+  {
+    "type": "paragraph",
+    "text": "4.3. Contre-indications"
+  },
+  {
+    "type": "paragraph",
+    "text": "Ant�c�dents d'allergie aux anesth�siques locaux."
+  },
+  {
+    "type": "paragraph",
+    "text": "4.4. Mises en garde sp�ciales et pr�cautions d'emploi"
+  },
+  {
+    "type": "paragraph",
+    "text": "En raison de l�insensibilisation due � l�anesth�sie locale, tenir compte du risque de morsure possible (l�vres, joue, langue)."
+  },
+  {
+    "type": "paragraph",
+    "text": "Une surveillance rapproch�e, apr�s application, chez les patients d�pendants peut notamment s�av�rer n�cessaire afin de v�rifier l�absence de morsure."
+  },
+  {
+    "type": "paragraph",
+    "text": "En raison du risque de fausse route, ne pas manger ou boire imm�diatement apr�s application."
+  },
+  {
+    "type": "paragraph",
+    "text": "L'indication ne justifie pas un traitement prolong�."
+  },
+  {
+    "type": "paragraph",
+    "text": "L'attention des sportifs sera attir�e sur le fait que cette sp�cialit� contient un principe actif pouvant induire une r�action positive des tests pratiqu�s lors de contr�les antidopage."
+  },
+  {
+    "type": "paragraph",
+    "text": "4.5. Interactions avec d'autres m�dicaments et autres formes d'interactions"
+  },
+  {
+    "type": "paragraph",
+    "text": "Les donn�es disponibles � ce jour ne laissent pas supposer l�existence d�interactions cliniquement significatives."
+  },
+  {
+    "type": "paragraph",
+    "text": "4.6. Fertilit�, grossesse et allaitement"
+  },
+  {
+    "type": "paragraph",
+    "text": "A utiliser avec prudence chez la femme enceinte ou qui allaite, faute de donn�es cliniques exploitables."
+  },
+  {
+    "type": "paragraph",
+    "text": "4.7. Effets sur l'aptitude � conduire des v�hicules et � utiliser des machines"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "4.8. Effets ind�sirables"
+  },
+  {
+    "type": "paragraph",
+    "text": "Les effets ind�sirables sont class�s par syst�me organe et par fr�quence de la fa�on suivante : tr�s fr�quent (>1/100, < 1/10) ; peu fr�quent (> 1/1 000, < 1/100) ; rare (> 1/10 000, < 1/1 000) ; tr�s rare (< 1/10 000) et les fr�quences ind�termin�es (qui ne peuvent pas �tre estim�es sur la base des donn�es disponibles)."
+  },
+  {
+    "type": "paragraph",
+    "text": "SOC (MedDRA)"
+  },
+  {
+    "type": "paragraph",
+    "text": "Fr�quence"
+  },
+  {
+    "type": "paragraph",
+    "text": "Effet ind�sirable"
+  },
+  {
+    "type": "paragraph",
+    "text": "Affections gastro-intestinales"
+  },
+  {
+    "type": "paragraph",
+    "text": "Ind�termin�e"
+  },
+  {
+    "type": "paragraph",
+    "text": "R�actions locales (irritation ou sensibilisation)"
+  },
+  {
+    "type": "paragraph",
+    "text": "Risque de morsure (l�vres, joue, langue) par insensibilisation (voir section 4.4)"
+  },
+  {
+    "type": "paragraph",
+    "text": "Affections du syst�me immunitaire"
+  },
+  {
+    "type": "paragraph",
+    "text": "Ind�termin�e"
+  },
+  {
+    "type": "paragraph",
+    "text": "R�action d�hypersensibilit� (urticaire pouvant aller jusqu�� �d�me de Quincke)"
+  },
+  {
+    "type": "paragraph",
+    "text": "D�claration des effets ind�sirables suspect�s"
+  },
+  {
+    "type": "paragraph",
+    "text": "La d�claration des effets ind�sirables suspect�s apr�s autorisation du m�dicament est importante. Elle permet une surveillance continue du rapport b�n�fice/risque du m�dicament. Les professionnels de sant� d�clarent tout effet ind�sirable suspect� via le syst�me national de d�claration : Agence nationale de s�curit� du m�dicament et des produits de sant� (ANSM) et r�seau des Centres R�gionaux de Pharmacovigilance - Site internet : www.signalement-sante.gouv.fr."
+  },
+  {
+    "type": "paragraph",
+    "text": "4.9. Surdosage"
+  },
+  {
+    "type": "paragraph",
+    "text": "Un surdosage n�est pas attendu dans les conditions normales d�utilisation de ce gel buccal."
+  },
+  {
+    "type": "paragraph",
+    "text": "Cette sp�cialit� contient une faible quantit� de d�riv�s terp�niques dans les excipients (huile essentielle de girofle). L�ingestion de doses excessives de lidoca�ne et de d�riv�s terp�niques peut entrainer, des accidents neurologiques � type de convulsions et en particulier, en cas d'ant�c�dents d'�pilepsie."
+  },
+  {
+    "type": "paragraph",
+    "text": "En application locale, les effets syst�miques sont tr�s rares. Cependant, en cas de surdosage et de passage syst�mique, des r�actions toxiques ne peuvent �tre exclues :"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Syst�me nerveux : nervosit�, agitation, tremblements, nystagmus, c�phal�es, naus�es"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Syst�me respiratoire : tachypn�e puis bradypn�e pouvant conduire � l'apn�e,"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         Syst�me cardiovasculaire : baisse du d�bit cardiaque et chute de la tension art�rielle."
+  },
+  {
+    "type": "paragraph",
+    "text": "Elles doivent �tre trait�es en milieu sp�cialis�."
+  },
+  {
+    "type": "paragraph",
+    "text": "5. PROPRIETES PHARMACOLOGIQUES"
+  },
+  {
+    "type": "paragraph",
+    "text": "5.1. Propri�t�s pharmacodynamiques"
+  },
+  {
+    "type": "paragraph",
+    "text": "Classe pharmacoth�rapeutique : ANESTHESIQUE LOCAL, Code ATC : N01BB52"
+  },
+  {
+    "type": "paragraph",
+    "text": "Association de :"
+  },
+  {
+    "type": "paragraph",
+    "text": "Lidoca�ne : anesth�sique local,"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sulfate de zinc : action astringente"
+  },
+  {
+    "type": "paragraph",
+    "text": "5.2. Propri�t�s pharmacocin�tiques"
+  },
+  {
+    "type": "paragraph",
+    "text": "Non renseign�"
+  },
+  {
+    "type": "paragraph",
+    "text": "5.3. Donn�es de s�curit� pr�clinique"
+  },
+  {
+    "type": "paragraph",
+    "text": "Non renseign�"
+  },
+  {
+    "type": "paragraph",
+    "text": "6. DONNEES PHARMACEUTIQUES"
+  },
+  {
+    "type": "paragraph",
+    "text": "6.1. Liste des excipients"
+  },
+  {
+    "type": "paragraph",
+    "text": "Glyc�rol, hydroxy�thylcellulose, ar�me fraise LC 15096*, saccharine sodique, huile essentielle de girofle, rouge cochenille A (E 124), eau purifi�e"
+  },
+  {
+    "type": "paragraph",
+    "text": "*Composition de l'ar�me fraise LC 15096 : acides propionique et lactique, butyrate d'�thyle, m�thyl-2 butyrate d'�thyle, cinammate de m�thyle, gamma und�calactone, cis 3 hex�nol, 4-hydroxy-2,5 dim�thyl dihydrofuran-3 one, propyl�neglycol."
+  },
+  {
+    "type": "paragraph",
+    "text": "6.2. Incompatibilit�s"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "6.3. Dur�e de conservation"
+  },
+  {
+    "type": "paragraph",
+    "text": "2 ans."
+  },
+  {
+    "type": "paragraph",
+    "text": "6.4. Pr�cautions particuli�res de conservation"
+  },
+  {
+    "type": "paragraph",
+    "text": "A conserver � une temp�rature ne d�passant pas + 25�C"
+  },
+  {
+    "type": "paragraph",
+    "text": "6.5. Nature et contenu de l'emballage ext�rieur"
+  },
+  {
+    "type": "paragraph",
+    "text": "Tube plastique (PEBD) de 15 ml"
+  },
+  {
+    "type": "paragraph",
+    "text": "6.6. Pr�cautions particuli�res d��limination et de manipulation"
+  },
+  {
+    "type": "paragraph",
+    "text": "Pas d�exigences particuli�res."
+  },
+  {
+    "type": "paragraph",
+    "text": "7. TITULAIRE DE L�AUTORISATION DE MISE SUR LE MARCHE"
+  },
+  {
+    "type": "paragraph",
+    "text": "COOPERATION PHARMACEUTIQUE FRANCAISE"
+  },
+  {
+    "type": "paragraph",
+    "text": "PLACE LUCIEN AUVERT"
+  },
+  {
+    "type": "paragraph",
+    "text": "77020 MELUN CEDEX"
+  },
+  {
+    "type": "paragraph",
+    "text": "8. NUMERO(S) D�AUTORISATION DE MISE SUR LE MARCHE"
+  },
+  {
+    "type": "paragraph",
+    "text": "�         34009 363 775 5 4 : 15 ml en tube (PEBD)"
+  },
+  {
+    "type": "paragraph",
+    "text": "9. DATE DE PREMIERE AUTORISATION/DE RENOUVELLEMENT DE L�AUTORISATION"
+  },
+  {
+    "type": "paragraph",
+    "text": "[� compl�ter ult�rieurement par le titulaire]"
+  },
+  {
+    "type": "paragraph",
+    "text": "10. DATE DE MISE A JOUR DU TEXTE"
+  },
+  {
+    "type": "paragraph",
+    "text": "[� compl�ter ult�rieurement par le titulaire]"
+  },
+  {
+    "type": "paragraph",
+    "text": "11. DOSIMETRIE"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "12. INSTRUCTIONS POUR LA PREPARATION DES RADIOPHARMACEUTIQUES"
+  },
+  {
+    "type": "paragraph",
+    "text": "Sans objet."
+  },
+  {
+    "type": "paragraph",
+    "text": "CONDITIONS DE PRESCRIPTION ET DE DELIVRANCE"
+  },
+  {
+    "type": "paragraph",
+    "text": "M�dicament non soumis � prescription m�dicale."
+  },
+  {
+    "type": "paragraph",
+    "text": "Retour en haut de la page"
+  },
+  {
+    "type": "heading",
+    "text": "Base de donn�es publiquedes m�dicaments"
+  },
+  {
+    "type": "heading",
+    "text": "AFTAGEL, gel buccal"
+  },
+  {
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "type": "heading",
+    "text": "Indications th�rapeutiques"
+  },
+  {
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "type": "paragraph",
+    "text": "Classe pharmacoth�rapeutique : ANESTHESIQUE LOCAL, Code ATC : N01BB52"
+  },
+  {
+    "type": "paragraph",
+    "text": "Traitement symptomatique de courte dur�e des l�sions douloureuses de la muqueuse buccale ou gingivale (par exemple aphtes)"
+  },
+  {
+    "type": "paragraph",
+    "text": ""
+  },
+  {
+    "type": "heading",
+    "text": "Groupe(s) g�n�rique(s)"
+  },
+  {
+    "type": "paragraph",
+    "text": "Ce m�dicament n'appartient � aucun groupe g�n�rique"
+  },
+  {
+    "type": "heading",
+    "text": "Composition en substances actives"
+  },
+  {
+    "type": "heading",
+    "text": "Pr�sentations"
+  },
+  {
+    "type": "heading",
+    "text": "> 1 tube(s) poly�thyl�ne basse densit� (PEBD) de 15 ml"
+  },
+  {
+    "type": "heading",
+    "text": "Service m�dical rendu (SMR)"
+  },
+  {
+    "type": "paragraph",
+    "text": "Pas de SMR disponible pour ce m�dicament (plus d'informations dans l'aide)"
+  },
+  {
+    "type": "heading",
+    "text": "Am�lioration du service m�dical rendu (ASMR)"
+  },
+  {
+    "type": "paragraph",
+    "text": "Pas d'ASMR disponible pour ce m�dicament (plus d'informations dans l'aide)"
+  },
+  {
+    "type": "heading",
+    "text": "Autres informations (cliquer pour afficher)"
+  },
+  {
+    "type": "paragraph",
+    "text": "Retour en haut de la page"
+  }
+]
