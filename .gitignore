@@ -30,3 +30,7 @@ next-env.d.ts
 .netlify
 
 .vercel
+
+.next
+/.next/cache
+/.next
