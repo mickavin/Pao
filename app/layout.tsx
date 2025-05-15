@@ -48,11 +48,11 @@ export default function RootLayout({
               <div className="flex flex-col min-h-screen w-full">
               <AccessibilityControls />
               <main className="flex-1 pb-20 w-full">{children}</main>
+              <Toaster />
                 <BottomNavigation />
               </div>
             </UserProvider>
             <AccessibilityOnboarding />
-            <Toaster />
           </AccessibilityProvider>
         </ThemeProvider>
       </body>

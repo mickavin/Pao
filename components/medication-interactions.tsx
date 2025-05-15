@@ -1,14 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { AlertTriangle, Info } from "lucide-react"
+import { useAccessibility } from "@/components/theme-provider"
 
 export function MedicationInteractions({ interactions }: { interactions: Array<{ name: string; description: string; severity: string }> }) {
+  const { speak } = useAccessibility()
   return (
     <div className="space-y-4">
       <Card>
         <CardContent className="p-4">
-          <h3 className="font-semibold mb-3">Interactions médicamenteuses</h3>
-          <p className="text-sm text-muted-foreground mb-4">
+          <h3 onClick={() => speak("Interactions médicamenteuses")} className="font-semibold mb-3">Interactions médicamenteuses</h3>
+          <p onClick={() => speak("Ces informations indiquent les interactions possibles avec d'autres médicaments ou substances. Consultez votre médecin ou pharmacien avant de combiner des traitements.")} className="text-sm text-muted-foreground mb-4">
             Ces informations indiquent les interactions possibles avec d'autres médicaments ou substances. Consultez
             votre médecin ou pharmacien avant de combiner des traitements.
           </p>
@@ -43,7 +45,7 @@ export function MedicationInteractions({ interactions }: { interactions: Array<{
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <p className="font-medium text-sm">{interaction.name}</p>
+                      <p onClick={() => speak(interaction.name)} className="font-medium text-sm">{interaction.name}</p>
                       <Badge
                         variant="outline"
                         className={`text-xs ${
@@ -61,7 +63,7 @@ export function MedicationInteractions({ interactions }: { interactions: Array<{
                             : "Légère"}
                       </Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground">{interaction.description}</p>
+                    <p onClick={() => speak(interaction.description)} className="text-sm text-muted-foreground">{interaction.description}</p>
                   </div>
                 </div>
               </div>

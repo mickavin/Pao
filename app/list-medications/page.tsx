@@ -15,6 +15,10 @@ import supabase from "@/utils/supabase/client"
 import * as ZXingBrowser from '@zxing/browser'
 import * as ZXingLibrary from '@zxing/library'
 import Scanqr from "@/components/ScanQR"
+import { Card, CardContent } from "@/components/ui/card"
+import { MedicationScanForm } from "@/components/medication-scan-form"
+import { ArrowLeft, Camera } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 // const QRCodeScanner = ({setData}: {setData: (data: string) => void}) => {
 //   const videoRef = useRef<HTMLVideoElement>(null);
 //   const controlsRef = useRef<ZXingBrowser.IScannerControls | null>(null);
@@ -278,29 +282,22 @@ export default function MedicationsPage() {
         </TabsContent>
 
         <TabsContent value="scan" className="mt-4">
-          <motion.div
-            className="flex flex-col items-center justify-center min-h-[300px] text-center border-2 border-dashed border-muted rounded-lg p-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.div>
        
-              <>
-                <div className="p-4 rounded-full bg-primary/10 text-primary mb-4">
-                  <Scan className="h-8 w-8" />
-                </div>
-                <h3 className="text-lg font-medium mb-2">Scanner un code QR</h3>
-                <p className="text-muted-foreground mb-4">
-                  Placez le QR code de votre médicament dans le cadre pour l'identifier
-                </p>
-                <>
-                <Scanqr setData={setData} />
-                {medication && (
-                  <p>
-                    ✅ QR Code détecté
-                  </p>
-                )}
-              </>  
+            <>
+              <Alert variant="default" className="bg-primary/10 border-primary/20 mb-4">
+                  <Camera className="h-4 w-4" />
+                  <AlertTitle>Scan obligatoire</AlertTitle>
+                  <AlertDescription>
+                    Pour des raisons de sécurité, l'ajout de médicaments nécessite de scanner le QR code présent sur l'emballage.
+                  </AlertDescription>
+                </Alert>
+
+                <Card className="p-6">
+                  <CardContent>
+                    <MedicationScanForm scanOnly={true} />
+                  </CardContent>
+                </Card>
               </>
           </motion.div>
         </TabsContent>

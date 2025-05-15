@@ -1,14 +1,16 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
+import { useAccessibility } from "@/components/theme-provider"
 
 export function MedicationSideEffects(
   {sideEffects, comments}: { sideEffects: Array<{ name: string; description: string; severity: string; percent: number }>},) {
+  const { speak } = useAccessibility()
   return (
     <div className="space-y-4">
       <Card>
         <CardContent className="p-4">
-          <h3 className="font-semibold mb-3">Effets secondaires possibles</h3>
-          <p className="text-sm text-muted-foreground mb-4">
+          <h3 onClick={() => speak("Effets secondaires possibles")} className="font-semibold mb-3">Effets secondaires possibles</h3>
+          <p onClick={() => speak("Ces informations sont basées sur les données cliniques et les retours des utilisateurs. La fréquence indique le pourcentage de patients ayant signalé cet effet.")} className="text-sm text-muted-foreground mb-4">
             Ces informations sont basées sur les données cliniques et les retours des utilisateurs. La fréquence indique
             le pourcentage de patients ayant signalé cet effet.
           </p>
@@ -17,8 +19,8 @@ export function MedicationSideEffects(
             {sideEffects.map((effect, index) => (
               <div key={index} className="space-y-1">
                 <div className="flex justify-between items-center">
-                  <span className="font-medium text-sm">{effect.name}</span>
-                  <span className="text-sm text-muted-foreground">{effect.percent}%</span>
+                  <span onClick={() => speak(effect.name)} className="font-medium text-sm">{effect.name}</span>
+                  <span onClick={() => speak(effect.percent.toString())} className="text-sm text-muted-foreground">{effect.percent}%</span>
                 </div>
                 <Progress
                   value={effect.percent}
@@ -32,7 +34,7 @@ export function MedicationSideEffects(
                   }`}
                 />
                 
-                <p className="text-xs text-muted-foreground">{effect.description}</p>
+                <p onClick={() => speak(effect.description)} className="text-xs text-muted-foreground">{effect.description}</p>
               </div>
             ))}
           </div>
@@ -41,14 +43,14 @@ export function MedicationSideEffects(
 
       <Card>
         <CardContent className="p-4">
-          <h3 className="font-semibold mb-2">Expériences communautaires</h3>
-          <p className="text-sm text-muted-foreground mb-3">
+          <h3 onClick={() => speak("Expériences communautaires")} className="font-semibold mb-2">Expériences communautaires</h3>
+          <p onClick={() => speak("Témoignages anonymisés d'autres utilisateurs de ce médicament.")} className="text-sm text-muted-foreground mb-3">
             Témoignages anonymisés d'autres utilisateurs de ce médicament.
           </p>
           {comments.map((comment, index) => (
             <div key={index} className="p-3 bg-muted rounded-lg mb-2">
-              <p className="text-sm italic">{comment.feedback}</p>
-              <p className="text-xs text-muted-foreground mt-1">Publié le {comment.date}</p>
+              <p onClick={() => speak(comment.feedback)} className="text-sm italic">{comment.feedback}</p>
+              <p onClick={() => speak(comment.date)} className="text-xs text-muted-foreground mt-1">Publié le {comment.date}</p>
             </div>
           ))}
           {/* <div className="space-y-3">

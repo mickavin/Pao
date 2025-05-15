@@ -8,10 +8,11 @@ import { ArrowLeft, Pill, Clock, AlertTriangle, FileText, Share2, Calendar } fro
 import Link from "next/link"
 import {MedicationSideEffects} from "@/components/medication-side-effects"
 import {MedicationInteractions} from "@/components/medication-interactions"
-export default function MedicationDetailPage({ params }: { params: { id: string } }) {
+import { useAccessibility } from "@/components/theme-provider"
 
+export default function MedicationDetailPage({ params }: { params: { id: string } }) {
   const [data, setData] = useState(null)
-  
+  const { speak } = useAccessibility()
   useEffect(() => {
     const fetchMedication = async () => {
       const response = await fetch(`/api/template`, {
@@ -58,7 +59,7 @@ export default function MedicationDetailPage({ params }: { params: { id: string 
             <ArrowLeft className="h-5 w-5" />
           </Button>
         </Link>
-        <h1 className="text-xl font-bold">{data.name}</h1>
+        <h1 onClick={() => speak(data.name)} className="text-xl font-bold">{data.name}</h1>
       </header>
 
       <Card>
@@ -72,14 +73,14 @@ export default function MedicationDetailPage({ params }: { params: { id: string 
                 <Badge variant="outline">{data.dosage}</Badge>
                 <Badge variant="outline">{data.form}</Badge>
               </div>
-              <h2 className="text-lg font-semibold">{data.name}</h2>
-              <p className="text-sm text-muted-foreground mb-2">{data.principe_actif}</p>
-              <p className="text-sm mb-3">{data.description}</p>
+              <h2 onClick={() => speak(data.name)} className="text-lg font-semibold">{data.name}</h2>
+              <p onClick={() => speak(data.principe_actif)} className="text-sm text-muted-foreground mb-2">{data.principe_actif}</p>
+              <p onClick={() => speak(data.description)} className="text-sm mb-3">{data.description}</p>
 
               <div className="flex flex-wrap gap-4 text-sm">
                 <div className="flex items-center gap-1">
                   <Clock className="h-4 w-4 text-muted-foreground" />
-                  <span>{data.utilisation}</span>
+                  <span onClick={() => speak(data.utilisation)}>{data.utilisation}</span>
                 </div>
                 {/* <div className="flex items-center gap-1">
                   <Calendar className="h-4 w-4 text-muted-foreground" />
@@ -111,17 +112,17 @@ export default function MedicationDetailPage({ params }: { params: { id: string 
         <TabsContent value="instructions" className="mt-4 space-y-4">
           <Card>
             <CardContent className="p-4">
-              <h3 className="font-semibold mb-2 flex items-center gap-2">
+              <h3 onClick={() => speak("Instructions")} className="font-semibold mb-2 flex items-center gap-2">
                 <FileText className="h-4 w-4" />
                 Instructions
               </h3>
-              <p className="text-sm">{data.usage}</p>
+              <p onClick={() => speak(data.usage)} className="text-sm">{data.usage}</p>
             </CardContent>
           </Card>
 
           <Card className="border-accent/30 bg-accent/5">
             <CardContent className="p-4">
-              <h3 className="font-semibold mb-2 flex items-center gap-2 text-accent">
+              <h3 onClick={() => speak("Avertissements")} className="font-semibold mb-2 flex items-center gap-2 text-accent">
                 <AlertTriangle className="h-4 w-4" />
                 Avertissements
               </h3>
@@ -129,7 +130,7 @@ export default function MedicationDetailPage({ params }: { params: { id: string 
                 {data.contre_indic.map((warning, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <span className="text-accent">•</span>
-                    <span>{warning.description}</span>
+                    <span onClick={() => speak(warning.description)}>{warning.description}</span>
                   </li>
                 ))}
               </ul>

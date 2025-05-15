@@ -11,143 +11,13 @@ import * as ZXingLibrary from '@zxing/library'
 import createClient from "@/utils/supabase/client"
 import { motion } from "framer-motion"
 import Scanqr from "@/components/ScanQR"
-
-
-const QRCodeScanner = ({setData}: {setData: (data: string) => void}) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const controlsRef = useRef<ZXingBrowser.IScannerControls | null>(null);
-  const [videoDevices, setVideoDevices] = useState<MediaDeviceInfo[]>([]);
-  const [selectedDeviceId, setSelectedDeviceId] = useState<string | null>(null);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [retryCount, setRetryCount] = useState(0);
-
-  useEffect(() => {
-    const getVideoDevices = async () => {
-      try {
-        const devices = await navigator.mediaDevices.enumerateDevices();
-        const videoInputDevices = devices.filter(device => device.kind === 'videoinput');
-        setVideoDevices(videoInputDevices);
-        if (videoInputDevices.length > 0) {
-          // Sélectionner par défaut la caméra arrière si disponible (souvent la dernière sur mobile)
-          setSelectedDeviceId(videoInputDevices[videoInputDevices.length - 1].deviceId);
-        } else {
-          setErrorMessage("Aucune caméra détectée. Veuillez vérifier que votre appareil dispose d'une caméra.");
-        }
-      } catch (err) {
-        console.error('Erreur lors de la récupération des appareils vidéo', err);
-        setErrorMessage("Erreur lors de l'accès aux caméras. Veuillez vérifier les permissions de votre navigateur. Détail: " + (err as any).message);
-      }
-    };
-    
-    getVideoDevices();
-  }, [retryCount]); // Réessayer lorsque retryCount change
-
-  useEffect(() => {
-    if (!selectedDeviceId) return;
-    const generateCodeReader = async () => {
-      const videoInputDevices = await ZXingBrowser.BrowserCodeReader.listVideoInputDevices();
-      const codeReaderMatrix = new ZXingBrowser.BrowserDatamatrixCodeReader();
-      const codeReaderQr = new ZXingBrowser.BrowserQRCodeReader();
-      const codeReaderBarcode = new ZXingLibrary.BrowserBarcodeReader();
-      try {
-        if (videoRef.current && videoInputDevices.length > 0) {
-          const constraints = {
-            video: {
-              deviceId: selectedDeviceId,
-              focusMode: 'continuous',
-              focusDistance: { ideal: 0.005 },
-              width: { ideal: 1280 },
-              height: { ideal: 720 }
-            }
-          };
-          setErrorMessage(null); // Réinitialiser le message d'erreur
-          const stream = await navigator.mediaDevices.getUserMedia(constraints);
-          videoRef.current.srcObject = stream;
-          await Promise.all([
-            codeReaderMatrix.decodeFromVideoDevice(videoInputDevices[0].deviceId, videoRef.current!, (result, error, controls) => {
-              if (!controlsRef?.current) {
-                controlsRef.current = controls;
-              }
-              if (result) {
-                setData(result.getText());
-                controls.stop();
-              }
-            }),
-            codeReaderQr.decodeFromVideoDevice(videoInputDevices[0].deviceId, videoRef.current!, (result, error, controls) => {
-              if (!controlsRef?.current) {
-                controlsRef.current = controls;
-              }
-              if (result) {
-                setData(result.getText());
-                controls.stop();
-              }
-            }),
-            codeReaderBarcode.decodeFromVideoDevice(videoInputDevices[0].deviceId, videoRef.current!, (result, error) => {
-              if (result) {
-                setData(result.getText());
-                controlsRef?.current?.stop();
-              }
-            })
-          ]);
-        }
-      } catch (err) {
-        console.error('Erreur lors du démarrage du scanner', err);
-        setErrorMessage("Impossible d'accéder à la caméra. Veuillez vérifier les permissions ou essayer une autre caméra. Détail: " + (err as any).message);
-      }
-    };
-
-    generateCodeReader();
-
-    return () => {
-      controlsRef.current?.stop();
-      if (videoRef.current && videoRef.current.srcObject) {
-        const stream = videoRef.current.srcObject as any;
-        if (stream && typeof stream.getTracks === 'function') {
-          stream.getTracks().forEach((track: any) => track.stop());
-        }
-        videoRef.current.srcObject = null;
-      }
-    };
-  }, [selectedDeviceId, retryCount]); // Ajout de retryCount comme dépendance
-
-  return (
-    <>
-      <video ref={videoRef} style={{ width: '100%', overflow: 'hidden' }} />
-      {errorMessage && (
-        <div className="text-red-500 text-sm text-center mt-2 max-w-xs mx-auto">
-          {errorMessage}
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="mt-2" 
-            onClick={() => setRetryCount(count => count + 1)}
-          >
-            Réessayer
-          </Button>
-        </div>
-      )}
-      {videoDevices.length > 1 && (
-        <div className="flex flex-col items-center justify-center mt-2 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-2 rounded-full shadow-md w-fit mx-auto">
-          <span className="text-xs text-muted-foreground mb-1">Caméra</span>
-          <div className="flex items-center gap-1">
-            {videoDevices.map((device, index) => (
-              <Button
-                key={device.deviceId}
-                variant={selectedDeviceId === device.deviceId ? 'default' : 'outline'}
-                size="sm"
-                className="rounded-full h-8 w-8"
-                onClick={() => setSelectedDeviceId(device.deviceId)}
-              >
-                {index + 1}
-              </Button>
-            ))}
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
-
+import { Card, CardContent } from "@/components/ui/card"
+import { MedicationScanForm } from "@/components/medication-scan-form"
+import { ArrowLeft, Camera } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { MedicationInfiniteList } from "@/components/medication-infinite-list-2"
+import { FilterOptions, MedicationFilters } from "@/components/medication-filters"
+import { useToast } from "@/components/ui/use-toast"
 
 
 export default function MedicationsPage() {
@@ -156,30 +26,100 @@ export default function MedicationsPage() {
   const [medications, setMedications] = useState<any>([])
   const [data, setData] = useState('');
   const [medication, setMedication] = useState('');
-
+  const [searchTerm, setSearchTerm] = useState("")
+  const [states, setStates] = useState<any>([])
+  const [types, setTypes] = useState<any>([])
+  const [activeFilters, setActiveFilters] = useState<FilterOptions>({
+    categories: [],
+    forms: [],
+    dosageRange: [0, 1000],
+    withPrescription: null,
+  })
+  const [activeFiltersCount, setActiveFiltersCount] = useState(0)
+  const { toast } = useToast()
+  
   useEffect(() => {
     async function fetchMedications() {
       const supabase = createClient;
       const { data: { user } } = await supabase.auth.getUser();
       
       if (user) {
-        // const { data, error } = await supabase
-        //   .from('user_medications')
-        //   .select('*')
-        //   .eq('user_id', user.id);
+        const { data: userMedications, error: error1 } = await supabase
+          .from('user_medications')
+          .select('*');
+
+        if (error1) {
+          console.error('Erreur user_medication:', error1);
+          return;
+        }
+        const spe_ids = userMedications.map(row => row.spe_id);
+
+        const { data: medications, error: error2 } = await supabase.from('stated_medication')
+        .select('*, typed_medication:typed_medication (CIP, FORME_PHARMACEUTIQUE, SUBSTANCE, DOSAGE)', { count: 'exact' })
+        .in('CIS', spe_ids);
+        if (error2) {
+          console.error('Erreur medications:', error2);
+        } else {
+          console.log('Médicaments en commun:', medications);
+          setMedications(medications)
+        }
           
-        // if (error) {
-        //   console.error("Erreur lors de la récupération des médicaments:", error);
-        // } else {
-        //   setUserMedications(data || []);
-        // }
+        if (error2) {
+          console.error("Erreur lors de la récupération des médicaments:", error2);
+        } else {
+          setUserMedications(medications || []);
+        }
       }
       setLoading(false);
     }
     
     fetchMedications();
   }, []);
+
+  useEffect(() => {
+    console.log(data);
+    if (data?.getData) {
+      setMedication(data.getData[0]);
+      // console.log(data.getData);
+    }
+  }, [data]);
   
+  const handleFilterChange = (filters: FilterOptions) => {
+    setActiveFilters(filters)
+
+    // Calculer le nombre de filtres actifs
+    let count = 0
+    count += filters.categories.length
+    count += filters.forms.length
+    if (filters.dosageRange[0] > 0 || filters.dosageRange[1] < 1000) count++
+    if (filters.withPrescription !== null) count++
+
+    setActiveFiltersCount(count)
+
+    // Notification de filtres appliqués
+    if (count > 0) {
+      toast({
+        title: "Filtres appliqués",
+        description: `${count} filtre${count > 1 ? "s" : ""} actif${count > 1 ? "s" : ""}`,
+      })
+    }
+  }
+
+  // Réinitialisation des filtres
+  const handleResetFilters = () => {
+    setActiveFilters({
+      categories: [],
+      forms: [],
+      dosageRange: [0, 1000],
+      withPrescription: null,
+    })
+    setActiveFiltersCount(0)
+
+    toast({
+      title: "Filtres réinitialisés",
+      description: "Tous les filtres ont été supprimés",
+    })
+  }
   return (
     <div className="container px-4 py-6 space-y-6">
       <header className="flex justify-between items-center">
@@ -215,40 +155,26 @@ export default function MedicationsPage() {
           </TabsTrigger>
         </TabsList>
         <TabsContent value="search" className="mt-4">
-          <div className="space-y-4">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input placeholder="Rechercher un médicament..." className="pl-10" defaultValue="Doli" />
-            </div>
-
-            <MedicationSearchResults />
-          </div>
+            
         </TabsContent>
 
         <TabsContent value="scan" className="mt-4">
-          <motion.div
-            className="flex flex-col items-center justify-center min-h-[300px] text-center border-2 border-dashed border-muted rounded-lg p-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-          >
+          <motion.div>
        
               <>
-                <div className="p-4 rounded-full bg-primary/10 text-primary mb-4">
-                  <Scan className="h-8 w-8" />
-                </div>
-                <h3 className="text-lg font-medium mb-2">Scanner un code QR</h3>
-                <p className="text-muted-foreground mb-4">
-                  Placez le QR code de votre médicament dans le cadre pour l'identifier
-                </p>
-                <>
-                <Scanqr setData={setData} />
-                {medication && (
-                  <p>
-                    ✅ QR Code détecté
-                  </p>
-                )}
-              </>  
+              <Alert variant="default" className="bg-primary/10 border-primary/20 mb-4">
+                  <Camera className="h-4 w-4" />
+                  <AlertTitle>Scan obligatoire</AlertTitle>
+                  <AlertDescription>
+                    Pour des raisons de sécurité, l'ajout de médicaments nécessite de scanner le QR code présent sur l'emballage.
+                  </AlertDescription>
+                </Alert>
+
+                <Card>
+                  <CardContent className="p-6">
+                    <MedicationScanForm scanOnly={true} />
+                  </CardContent>
+                </Card>
               </>
           </motion.div>
         </TabsContent>
@@ -259,18 +185,33 @@ export default function MedicationsPage() {
             <h2 className="text-lg font-medium">Mes Médicaments</h2>
             {loading ? (
               <p className="text-muted-foreground">Chargement...</p>
-            ) : userMedications.length === 0 ? (
+            ) : medications.length === 0 ? (
               <p className="text-muted-foreground">Aucun médicament enregistré.</p>
             ) : (
-              <div className="grid gap-2">
-                {userMedications.map((med) => (
-                  <div key={med.id} className="p-3 border rounded-md">
-                    <h3 className="font-medium">{med.name}</h3>
-                    {med.dosage && <p className="text-sm text-muted-foreground">Dosage: {med.dosage}</p>}
-                    {med.frequency && <p className="text-sm text-muted-foreground">Fréquence: {med.frequency}</p>}
-                  </div>
-                ))}
-              </div>
+              <motion.div
+                className="space-y-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
+              >
+
+                <div className="flex items-center justify-between">
+
+                  <MedicationFilters
+                    onFilterChange={handleFilterChange}
+                    onReset={handleResetFilters}
+                    activeFiltersCount={activeFiltersCount}
+                  />
+                </div>
+
+                <MedicationInfiniteList
+                  initialMedications={medications}
+                  states={states}
+                  types={types}
+                  searchTerm={searchTerm}
+                  filters={activeFilters}
+                />
+          </motion.div>
             )}
           </div>
         </TabsContent>

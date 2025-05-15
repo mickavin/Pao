@@ -23,7 +23,7 @@ export default async function POST(req: NextApiRequest, res: NextApiResponse) {
     const text2 = content2('#textDocument')?.text();
     const text3 = content3('#contentPrincipal')?.text();
     const response = await openai.responses.parse({
-      model: "o4-mini",
+      model: "gpt-4.1-nano",
       input: [
         {
           role: "system",

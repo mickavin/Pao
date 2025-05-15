@@ -1,13 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Clock, Check, X } from "lucide-react"
 import { Confetti } from "@/components/ui/confetti"
 import { AnimatedFeedback } from "@/components/ui/animated-feedback"
 import { cn } from "@/lib/utils"
-
+import createClient from "@/utils/supabase/client"
 const initialReminders = [
   {
     id: 1,
@@ -31,7 +31,7 @@ const initialReminders = [
 ]
 
 export function DailyReminders() {
-  const [reminders, setReminders] = useState(initialReminders)
+  const [reminders, setReminders] = useState([])
   const [showConfetti, setShowConfetti] = useState(false)
   const [feedback, setFeedback] = useState<{ type: "success" | "error" | "warning" | null; message: string }>({
     type: null,
@@ -66,6 +66,47 @@ export function DailyReminders() {
       message: "Pas de souci, on continue ensemble 💪",
     })
   }
+
+  useEffect(() => {
+    async function fetchMedications() {
+      const supabase = createClient;
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data: userMedications, error: error1 } = await supabase
+          .from('user_medications')
+          .select('*');
+
+        if (error1) {
+          console.error('Erreur user_medication:', error1);
+          return;
+        }
+        const spe_ids = userMedications.map(row => row.spe_id);
+
+        const { data: medications, error: error2 } = await supabase.from('stated_medication')
+        .select('*, typed_medication:typed_medication (CIP, FORME_PHARMACEUTIQUE, SUBSTANCE, DOSAGE)', { count: 'exact' })
+        .in('CIS', spe_ids);
+        if (error2) {
+          console.error('Erreur medications:', error2);
+        } else {
+          console.log('Médicaments en commun:', medications);
+          setReminders(medications.map(medication => ({
+            id: medication.CIS,
+            medication: medication.NOM_COMMERCIAL,
+            taken: false,
+            time: "08:00",
+            upcoming: true,
+          })));
+        }
+          
+        if (error2) {
+          console.error("Erreur lors de la récupération des médicaments:", error2);
+        } else {
+        }
+      }
+    }
+    
+    fetchMedications();
+  }, []);
 
   return (
     <>

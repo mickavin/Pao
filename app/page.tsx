@@ -6,8 +6,9 @@ import { AdherenceStreak } from "@/components/adherence-streak"
 import { ProgressCharts } from "@/components/progress-charts"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Confetti } from "@/components/ui/confetti"
+import createClient from "@/utils/supabase/client"
 
 const streakData = [
   { date: "2023-04-10", completed: true },
@@ -34,7 +35,7 @@ const dailyQuest = {
 export default function Home() {
   const [showConfetti, setShowConfetti] = useState(false)
   const [tokens, setTokens] = useState(125)
-
+  const [medications, setMedications] = useState<any[]>([])
 
   const handleCompleteQuest = () => {
     setShowConfetti(true)
@@ -47,7 +48,7 @@ export default function Home() {
 
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold">Bonjour Sophie 👋</h1>
+          <h1 className="text-2xl font-semibold">Bonjour 👋</h1>
           <p className="text-muted-foreground">Tu avances bien dans ton parcours de santé. Continue comme ça !</p>
         </div>
         <div className="flex items-center bg-green-100 px-3 py-1 rounded-full">

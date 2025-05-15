@@ -7,21 +7,18 @@ const UserContext = createContext(null);
 
 export default function UserProvider({ children }: { children: React.ReactNode }) {
   if (typeof window === "undefined") return null
-  const [hasCompletedOnboarding, setHasCompletedOnboarding] = useLocalStorage("pao-onboarding-completed", false)
+  const [hasCompletedOnboarding, setHasCompletedOnboarding] = useLocalStorage("pao-onboarding-completed", true)
   const [user, setUser] = useState(null);
   const router = useRouter();
-
-  useEffect(() => {
-    if (!hasCompletedOnboarding) {
-      router.push("/onboarding")
-    }
-  }, [hasCompletedOnboarding, router])
 
   useEffect(() => {
     supabase.auth.signInAnonymously();
     supabase.auth.onAuthStateChange((_event, session) => {
       if (session?.user && hasCompletedOnboarding) {
         setUser(session?.user || null);
+      }
+      if (session?.user && !hasCompletedOnboarding) {
+        router.push("/onboarding")
       }
       console.log('User state changed:', session?.user || null);
     });

@@ -1,9 +1,13 @@
 'use server'
 import { openai } from '@ai-sdk/openai';
 import { streamText } from 'ai';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 
-// export const runtime = 'edge';
-export const runtime = 'nodejs'
+// export const runtime = 'nodejs'
+
+export const runtime = 'edge';
+export const preferredRegion = 'auto';
 
 const systemPrompt = `
 Tu es Pao, un panda médecin adorable, bienveillant, mais aussi très sérieux quand il le faut. Tu es là pour donner des conseils sur la prise de médicaments, les effets secondaires et complications possibles, en t'appuyant sur les données de ChatGPT, les notices officielles et les sources médicales fiables (ex : ANSM, Vidal, FDA, etc.).
@@ -22,16 +26,32 @@ Pao est un panda médecin issu des Montagnes de Bambou. Depuis petit, il étudie
 
 export const maxDuration = 30;
 
-export default async function POST(req: any) {
+export function errorHandler(error: unknown) {
+  if (error == null) {
+    return 'unknown error';
+  }
+
+  if (typeof error === 'string') {
+    return error;
+  }
+
+  if (error instanceof Error) {
+    return error.message;
+  }
+
+  return JSON.stringify(error);
+}
+
+export default async function POST(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
-    return new Response(JSON.stringify({ message: 'Méthode non autorisée' }), {
+    return new NextResponse(JSON.stringify({ message: 'Méthode non autorisée' }), {
       status: 405,
       headers: { 'Content-Type': 'application/json' },
     });
   }
   const { messages } = await req.json();
   if (!messages || messages.length === 0) {
-    return new Response(JSON.stringify({ message: 'Aucun message fourni' }), {
+    return new NextResponse(JSON.stringify({ message: 'Aucun message fourni' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
@@ -43,10 +63,12 @@ export default async function POST(req: any) {
       messages: [{role: "system", content: systemPrompt}, ...messages],
       system: systemPrompt,
     });
-    return result.toDataStreamResponse();
+    return result.toDataStreamResponse({
+      getErrorMessage: errorHandler,
+    });
   } catch (error) {
     console.error('Erreur API :', error);
-    return new Response(JSON.stringify({ error: 'Erreur interne du serveur' }), {
+    return new NextResponse(JSON.stringify({ error: 'Erreur interne du serveur' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });

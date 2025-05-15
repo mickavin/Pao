@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     Scanner,
     useDevices,
@@ -6,7 +6,8 @@ import {
     boundingBox,
     centerText,
   } from "@yudiel/react-qr-scanner";
-  
+  import supabase from "@/utils/supabase/client";
+
   const styles = {
     container: {
       width: 400,
@@ -64,11 +65,40 @@ return result;
 }
 
 
-export default function Scanqr({ setData }: { setData: (data: string) => void }) {
+export default function Scanqr({ setData, startScan }: { setData: (data: {getData: any, readData: any, statedData: any}) => void, startScan?: () => void }) {
     const [deviceId, setDeviceId] = useState<string | undefined>(undefined);
     const [tracker, setTracker] = useState<string | undefined>("centerText");
     const [pause, setPause] = useState(false);
     const [parsedData, setParsedData] = useState<any>(null);
+    const [fullData, setFullData] = useState<any>(null);
+
+    useEffect(() => {
+      if (parsedData) {
+        const getFullData = async () => {
+        const { data, error } = await supabase
+        .from('medication')
+        .select('*')
+        .eq('full_CIP', parsedData.gtin.slice(1, 14));
+        if (error) {
+          console.error(error);
+        }
+        if (data?.length! > 0) {
+          const { data: data2, error: error2 } = await supabase
+          .from('stated_medication')
+          .select('*')
+          .eq('CIS', data?.[0].CIP);
+          if (error2) {
+            console.error(error2);
+          }
+          setFullData(data);
+          console.log(data2)
+          setData({getData: data, readData: parsedData, statedData: data2});
+        }
+      }
+        getFullData();
+    }
+  }, [parsedData]);
+
     function getTracker() {
       switch (tracker) {
         case "outline":
@@ -83,11 +113,11 @@ export default function Scanqr({ setData }: { setData: (data: string) => void })
     }
   
     const handleScan = async (data: string) => {
+      startScan?.();
       setPause(true);
       try {
         const parsedData = parseDataMatrix(data);
         setParsedData(parsedData);
-        setData(data);
       } catch (error: unknown) {
         console.log(error);
       } finally {
@@ -97,14 +127,14 @@ export default function Scanqr({ setData }: { setData: (data: string) => void })
   
     return (
       <div>
-        {parsedData && (
+        {/* {parsedData && (
           <div>
             <p>GTIN: {parsedData.gtin}</p>
             <p>Serial: {parsedData.serial}</p>
             <p>Lot: {parsedData.lot}</p>
             <p>Expiry: {parsedData.expiry}</p>  
           </div>
-        )}
+        )} */}
         <Scanner
           formats={[
             "qr_code",
@@ -142,7 +172,7 @@ export default function Scanqr({ setData }: { setData: (data: string) => void })
             container: 'qrscan',
             video: 'aspect-square w-full h-full object-cover',
           }}
-          styles={{ container: { height: "400px", width: "350px" }, finderBorder: 20 }}
+          styles={{ container: { height: "100%", width: "100%" }, finderBorder: 20 }}
           components={{
             onOff: true,
             torch: true,

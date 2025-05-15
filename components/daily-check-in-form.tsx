@@ -12,7 +12,8 @@ import { Confetti } from "@/components/ui/confetti"
 import { RewardAnimation } from "@/components/gamification/reward-animation"
 import { PandaMascot } from "@/components/ui/panda-mascot"
 import { Combobox } from "./ui/combo-box"
-
+import createClient from "@/utils/supabase/client"
+import { useEffect } from "react"
 export function DailyCheckInForm() {
   const [mood, setMood] = useState(3)
   const [pain, setPain] = useState(2)
@@ -34,6 +35,46 @@ export function DailyCheckInForm() {
     { id: 3, name: "Doliprane 1000mg", taken: false, time: "20:00" },
     { id: 4, name: "Ventoline", taken: false, time: "Si besoin" },
   ])
+
+  useEffect(() => {
+    async function fetchMedications() {
+      const supabase = createClient;
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data: userMedications, error: error1 } = await supabase
+          .from('user_medications')
+          .select('*');
+
+        if (error1) {
+          console.error('Erreur user_medication:', error1);
+          return;
+        }
+        const spe_ids = userMedications.map(row => row.spe_id);
+
+        const { data: medications, error: error2 } = await supabase.from('stated_medication')
+        .select('*, typed_medication:typed_medication (CIP, FORME_PHARMACEUTIQUE, SUBSTANCE, DOSAGE)', { count: 'exact' })
+        .in('CIS', spe_ids);
+        if (error2) {
+          console.error('Erreur medications:', error2);
+        } else {
+          console.log('Médicaments en commun:', medications);
+          setMedications(medications.map(medication => ({
+            id: medication.CIS,
+            name: medication.NOM_COMMERCIAL,
+            taken: false,
+            time: "08:00"
+          })));
+        }
+          
+        if (error2) {
+          console.error("Erreur lors de la récupération des médicaments:", error2);
+        } else {
+        }
+      }
+    }
+    
+    fetchMedications();
+  }, []);
 
   const toggleMedication = (id: number) => {
     setMedications(medications.map((med) => (med.id === id ? { ...med, taken: !med.taken } : med)))
@@ -77,7 +118,7 @@ export function DailyCheckInForm() {
   return (
     <div className="space-y-6">
       {showConfetti && <Confetti count={80} onComplete={() => setShowConfetti(false)} />}
-      {showReward && <RewardAnimation points={15} onComplete={() => setShowReward(false)} />}
+      {showReward && <RewardAnimation message="Bravo ! Tu as gagné 15 feuilles !" points={15} onComplete={() => setShowReward(false)} />}
 
       {submitted ? (
         <div className="flex flex-col items-center justify-center py-8 text-center">
@@ -118,7 +159,7 @@ export function DailyCheckInForm() {
                   <div className="flex items-left justify-between md:flex-row flex-col mx-2 md:mx-0">
                     <div className="flex flex-col mb-2 md:mb-0">
                       <div className="font-medium">{med.name}</div>
-                      <div className="text-xs text-muted-foreground">{med.time}</div>
+                      <div className="text-xs text-muted-foreground">{"08:00"}</div>
                     </div>
                     <div className="flex gap-2 justify-between">
                       <Button
